@@ -80,11 +80,13 @@ const App = () => {
   const [response, setResponse] = React.useState(null);
   const [textarea, SetTextarea] = React.useState('');
   const [select, SetSelect] = React.useState('');
+  const [radio, setRadio] = React.useState('');
 
   function handleChange({ target }) {
     const { id, value } = target;
     setForm({ ...form, [id]: value });
     console.log(form);
+    setRadio(target.value);
   }
 
   function handleSubmit(event) {
@@ -128,6 +130,34 @@ const App = () => {
         <option value="tablet">Tablet</option>
       </select>
       {select}
+
+      <label>
+        <input
+          type="radio"
+          value="notebook"
+          checked={radio === 'notebook'}
+          onChange={handleChange}
+        />
+        Notebook
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="smartphone"
+          checked={radio === 'smartphone'}
+          onChange={handleChange}
+        />
+        Smartphone
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="tablet"
+          checked={radio === 'tablet'}
+          onChange={handleChange}
+        />
+        Tablet
+      </label>
     </form>
   );
 };
