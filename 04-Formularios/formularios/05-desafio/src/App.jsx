@@ -43,6 +43,7 @@ const App = () => {
     p3: '',
     p4: '',
   });
+  const [slide, setSlide] = React.useState(0);
 
   function handleChange({ target }) {
     setRespostas({ ...respostas, [target.id]: target.value });
@@ -50,8 +51,9 @@ const App = () => {
 
   return (
     <form>
-      {perguntas.map((pergunta) => (
+      {perguntas.map((pergunta, index) => (
         <Radio
+          active={slide === index}
           key={pergunta.id}
           value={perguntas[pergunta.id]}
           onChange={handleChange}

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Radio = ({ pergunta, options, onChange, value, id }) => {
+const Radio = ({ pergunta, options, onChange, value, id, active }) => {
+  if (active === false) return null;
   return (
     <fieldset
       style={{
