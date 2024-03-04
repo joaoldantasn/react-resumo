@@ -49,8 +49,20 @@ const App = () => {
     setRespostas({ ...respostas, [target.id]: target.value });
   }
 
+  function resultado() {
+    console.log('final');
+  }
+
+  function handleClick() {
+    if (slide < perguntas.length - 1) {
+      setSlide(slide + 1);
+    } else {
+      resultado();
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={(event) => event.preventDefault()}>
       {perguntas.map((pergunta, index) => (
         <Radio
           active={slide === index}
@@ -60,7 +72,7 @@ const App = () => {
           {...pergunta}
         />
       ))}
-      <button>Próximo</button>
+      <button onClick={handleClick}>Próximo</button>
     </form>
   );
 };
