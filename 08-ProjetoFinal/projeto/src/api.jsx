@@ -1,5 +1,7 @@
 export const API_URL = 'https://dogsapi.origamid.dev/json';
 
+//** USERS ENDPOINTS */
+
 //LOGIN
 export function TOKEN_POST(body) {
   return {
@@ -53,6 +55,8 @@ export function USER_POST(body) {
   };
 }
 
+//** PHOTOS ENDPOINTS */
+
 //PHOTOPOST
 export function PHOTO_POST(formData, token) {
   return {
@@ -85,6 +89,23 @@ export function PHOTO_GET(id) {
     options: {
       method: 'GET',
       cache: 'no-store',
+    },
+  };
+}
+
+//** COMMENTS ENDPOINTS */
+
+//PHOTOGET(MODAL)
+export function COMMENT_POST(id, body) {
+  return {
+    url: `${API_URL}/api/comment/${id}`,
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer' + window.localStorage.getItem('token'),
+      },
+      body: JSON.stringify(body),
     },
   };
 }
