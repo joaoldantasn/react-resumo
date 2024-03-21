@@ -14,6 +14,7 @@ import Login from './Pages/Login/Login';
 import { UserStorage } from './UserContext';
 import Photo from './Components/Photo/Photo';
 import UserProfile from './Components/User/UserProfile';
+import NotFound from './NotFound';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             />
             <Route path="foto/:id" element={<Photo />} />
             <Route path="perfil/:user" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </UserStorage>
