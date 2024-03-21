@@ -13,6 +13,7 @@ import Login from './Pages/Login/Login';
 //userContext
 import { UserStorage } from './UserContext';
 import Photo from './Components/Photo/Photo';
+import UserProfile from './Components/User/UserProfile';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
               }
             />
             <Route path="foto/:id" element={<Photo />} />
+            <Route path="perfil/:user" element={<UserProfile />} />
           </Routes>
           <Footer />
         </UserStorage>
